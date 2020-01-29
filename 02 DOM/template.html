@@ -2,10 +2,8 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <div id="app">
-    <input type='text' v-on:input='alterarTitulo'>
-    <p>{{titulo}}</p>
+    <p v-once>{{titulo}}</p> <!--v-once exibe apenas uma vez, e não fica monitorando o elemento-->
     <p>{{saudacao()}}</p>
-    <a v-bind:href='link'>Google</a>
     <a :href='link'>Google</a>
 </div>
 
@@ -18,7 +16,8 @@
         },
         methods: {
             saudacao() {
-                return this.titulo
+                this.titulo = 'Bom dia';
+                return this.titulo;
             }
         }
     })

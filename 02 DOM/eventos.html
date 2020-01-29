@@ -4,7 +4,13 @@
 <div id="app">
     <p >{{contador}}</p>
     <button @click='somar(5, $event)'>Somar1</button>
-    <p @mousemove='atualizarXY'>Mouse: {{x}},{{y}}</p>
+    <p @mousemove='atualizarXY'>
+        Mouse: {{x}},{{y}}
+        <span @mousemove='pararEvento'>PARAR AQUI</span>
+        <span @mousemove.stop>PARAR AQUI</span> <!--Mesma coisa que a linha de cima-->
+    </p>
+    <a href='http://google.com' @click.prevent>Google</a> <!--Inibe o comportamento padrão-->
+    <span @mousemove.stop.prevent>PARAR AQUI</span> <!--Encadeamento de modificadores de eventos-->
 </div>
 
 <script>
@@ -25,6 +31,9 @@
             {
                 this.x = evt.clientX
                 this.y = evt.clientY
+            },
+            pararEvento(evt) {
+                evt.stopPropagation();
             }
         }
     })

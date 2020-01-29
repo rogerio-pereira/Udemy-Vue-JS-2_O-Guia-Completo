@@ -3,7 +3,7 @@
 
 <div id="app">
     <p >{{contador}}</p>
-    <button @click='somar'>Somar1</button>
+    <button @click='somar(5, $event)'>Somar1</button>
     <p @mousemove='atualizarXY'>Mouse: {{x}},{{y}}</p>
 </div>
 
@@ -16,9 +16,10 @@
             y: 0,
         },
         methods: {
-            somar()
+            somar(passo, evt)
             {
-                this.contador++;
+                console.log(passo, evt);
+                this.contador+=passo;
             },
             atualizarXY(evt)
             {

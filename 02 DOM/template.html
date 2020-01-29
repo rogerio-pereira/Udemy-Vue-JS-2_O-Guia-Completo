@@ -5,6 +5,8 @@
     <p v-once>{{titulo}}</p> <!--v-once exibe apenas uma vez, e não fica monitorando o elemento-->
     <p>{{saudacao()}}</p>
     <a :href='link'>Google</a>
+    <hr>
+    <p v-html="linkHtml"></p>
 </div>
 
 <script>
@@ -12,7 +14,8 @@
         el: '#app',
         data: {
             titulo: 'Usando VueJs',
-            link: 'http://google.com'
+            link: 'http://google.com',
+            linkHtml: '<a href="http://google.com">Google2</a>'
         },
         methods: {
             saudacao() {

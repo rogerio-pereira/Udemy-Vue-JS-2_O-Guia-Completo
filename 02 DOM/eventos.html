@@ -11,6 +11,8 @@
     </p>
     <a href='http://google.com' @click.prevent>Google</a> <!--Inibe o comportamento padrão-->
     <span @mousemove.stop.prevent>PARAR AQUI</span> <!--Encadeamento de modificadores de eventos-->
+
+    <input type='text' @keyup.enter.alt='exibirAlerta'>
 </div>
 
 <script>
@@ -34,6 +36,9 @@
             },
             pararEvento(evt) {
                 evt.stopPropagation();
+            },
+            exibirAlerta() {
+                alert('Alerta');    
             }
         }
     })

@@ -3,7 +3,8 @@
 
 <div id="app">
     <input type='text' v-on:input='alterarTitulo'>
-    {{titulo}}
+    <p>{{titulo}}</p>
+    <p>{{saudacao()}}</p>
 </div>
 
 <script>
@@ -13,9 +14,8 @@
             'titulo': 'Usando VueJs'
         },
         methods: {
-            alterarTitulo(event)
-            {
-                this.titulo = event.target.value
+            saudacao() {
+                return 'Boa Semana!';
             }
         }
     })

@@ -17,10 +17,23 @@
             contador: 0,
             contador2: 0,
         },
+        //Propriedades computadas são ações sincronas
         computed: {
             resultado(){
                 console.log('Chamada de Método computed resultado()');
                 return this.contador >= 5 ? 'Maior ou igual a 5' : "Menor que 5";
+            }
+        },
+        //Propriedades watch são assincronas
+        watch: {
+            //O nome do observador deve ser igual ao nome da variavel ou computed que ira ser observada
+            //Recebe dois parametros valor novo e valor antigo
+            contador(novo, antigo) {
+                //Precisa da arrow function pq se fosse uma função normal "setTimeout(function() {" o this.contador
+                //faria referencia a função contador
+                setTimeout(() => {
+                    this.contador = 0;
+                }, 2000)
             }
         },
         methods: {

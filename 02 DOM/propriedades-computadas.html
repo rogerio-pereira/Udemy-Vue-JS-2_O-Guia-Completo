@@ -1,0 +1,39 @@
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <button @click='aumentar'>Aumentar</button>
+    <button @click='contador2++'>Aumentar 2</button>
+    <button @click='diminuir'>Diminuir</button>
+    <p>Contador: {{contador}} | {{contador2}}</p>
+    <!--<p>Resultado: {{resultado()}}</p>--> <!--Quando a chamada é pelo method vc tem que chamar como método (com parenteses)-->
+    <p>Resultado: {{resultado}}</p> <!--Quando a chamada pe pelo computed vc chama como um atributo (sem parenteses)-->
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            contador2: 0,
+        },
+        computed: {
+            resultado(){
+                console.log('Chamada de Método computed resultado()');
+                return this.contador >= 5 ? 'Maior ou igual a 5' : "Menor que 5";
+            }
+        },
+        methods: {
+            aumentar() {
+                this.contador++;
+            },
+            diminuir() {
+                this.contador--;
+            },
+            /*resultado(){
+                console.log('Chamada de Método resultado()');
+                return this.contador >= 5 ? 'Maior ou igual a 5' : "Menor que 5";
+            }*/
+        }
+    })
+</script>

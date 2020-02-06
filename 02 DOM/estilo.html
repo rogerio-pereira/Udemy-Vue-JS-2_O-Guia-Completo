@@ -26,7 +26,7 @@
 
 <div id="app">
     <div 
-        class="demo" :class='{c1: aplicarC1}'
+        class="demo" :class='estilo1'
         @click='aplicarC1 = !aplicarC1'
     ></div>
     <div 
@@ -46,6 +46,14 @@
             aplicarC1: false,
             aplicarC2: false,
             aplicarC3: false,
+        },
+        computed: {
+            estilo1(){
+                return {
+                    c1: this.aplicarC1, 
+                    c2: !this.aplicarC1,
+                }
+            }
         }
     })
 </script>

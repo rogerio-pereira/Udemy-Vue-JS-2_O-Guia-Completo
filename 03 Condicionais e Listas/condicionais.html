@@ -3,7 +3,10 @@
 <meta charset="UTF-8">
 
 <div id="app">
-    <p v-if='logado'>Usuario Logado: {{nome}}</p>
+    <template v-if='logado'>
+        <p >Usuario Logado: {{nome}}</p>
+        <p>Perfil: Admin</p>
+    </template>
     <p v-else-if='anonimo'>Navegando como anonimo</p>
     <p v-else>Nenhum usuario logado</p>
     <button @click='logado = !logado'>

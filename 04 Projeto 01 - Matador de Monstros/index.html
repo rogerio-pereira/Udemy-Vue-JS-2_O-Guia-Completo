@@ -38,8 +38,9 @@
             </div>
 
             <!--result-->
-            <div class="panel result">
-                result
+            <div class="panel result" v-if='hasResult'>
+                <div class='win' v-if='monsterLife == 0'>Você ganhou! :)</div>
+                <div class='loose' v-else>Você perdeu! :(</div>
             </div>
 
             <!--buttons-->

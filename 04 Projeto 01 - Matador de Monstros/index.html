@@ -63,7 +63,11 @@
 
             <!--logs-->
             <div class="panel logs" v-if="logs.length">
-                
+                <ul>
+                    <li class='log' v-for="log in logs" :class='log.cls'>
+                        {{log.text }}
+                    </li>
+                </ul>
             </div>
         </div>
     

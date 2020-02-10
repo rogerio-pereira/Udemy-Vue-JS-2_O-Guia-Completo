@@ -45,7 +45,20 @@
 
             <!--buttons-->
             <div class="panel buttons">
-                buttons
+                <template v-if='running'>
+                    <button class="btn attack">Ataque</button>
+                    <button class="btn special-attack">Ataque Especial</button>
+                    <button class="btn heal">Curar</button>
+                    <button class="btn give-up" @click='running = false'>Desistir</button>
+                </template>
+                ]
+                <button 
+                    class="btn new-game" 
+                    @click='running = true'
+                    v-else
+                >
+                    Iniciar Jogo
+                </button>
             </div>
 
             <!--logs-->

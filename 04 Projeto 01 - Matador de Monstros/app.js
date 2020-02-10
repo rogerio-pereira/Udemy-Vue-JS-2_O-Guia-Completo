@@ -4,6 +4,7 @@ new Vue({
         playerLife: 100,
         monsterLife: 100,
         running: false,
+        logs: []
     },
     computed: {
         hasResult() {
@@ -16,14 +17,17 @@ new Vue({
             this.playerLife = 100;
             this.monsterLife = 100;
         },
-        hurt(prop, min, max, special) {
+        hurt(prop, min, max, special, source, target, cls) {
             const plus = special ? 5 : 0;
             const hurt = this.getRandom(min+plus, max+plus);
             this[prop] = Math.max(this[prop] - hurt, 0); //Evita que a vida seja negativa
+            this.registerLog('${source} atingiu ${target} com ${hurt}', cls);
         },
         attack(special) {
-            this.hurt('monsterLife', 5, 10, special);
-            this.hurt('playerLife', 7, 12, false);
+            this.hurt('monsterLife', 5, 10, special, 'Jogador', 'Monstro', 'player');
+
+            if(this.monsterLife > 0)
+                this.hurt('playerLife', 7, 12, false, 'Monstro', 'Jogador', 'monster');
         },
         healAndHurt() {
             this.heal(10,15),
@@ -37,6 +41,9 @@ new Vue({
             const value = Math.random() * (max - min) + min;
             return Math.round(value);
         },
+        registerLog(text, cls) {
+            this.logs.unshift({text, cls});
+        }
     },
     watch: {
         hasResult(value) {

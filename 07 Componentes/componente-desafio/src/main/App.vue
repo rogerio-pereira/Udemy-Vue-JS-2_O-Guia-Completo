@@ -1,14 +1,14 @@
 <template>
 	<v-app>
-		<app-menu />
+		<menu />
 
-		<app-toolbar />
+		<toolbar />
 
 		<v-content>
-			<app-carousel />
+			<carousel />
 		</v-content>
 
-		<app-footer />
+		<footer />
 	</v-app>
 </template>
 
@@ -20,10 +20,10 @@ import Menu from '../components/template/Menu.vue';
 
 export default {
 	components: {
-		'app-footer': Footer,
-		'app-carousel': Carousel,
-		'app-toolbar': Toolbar,
-		'app-menu': Menu,
+		Footer,
+		Carousel,
+		Toolbar,
+		Menu,
 	},
 	data() {
 		return {

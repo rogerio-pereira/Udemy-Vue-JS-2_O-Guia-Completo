@@ -1,0 +1,31 @@
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<meta charset="UTF-8">
+
+<div id="app">
+    <h1 ref='aulaRef'>{{aula}}</h1>
+    <h2>{{modulo}}</h2>
+    <button @click='alterarAula'>Alterar Aula</button>
+    <button @click='alterarModulo'>Alterar Modulo</button>
+</div>
+
+<script>
+    const vm  = new Vue({
+        el: '#app',
+        data: {
+            aula: 'Aula usando refs',
+            modulo: 'Modulo: Instancia Vue'
+        },
+        methods: {
+            alterarAula() {
+                this.aula += '#';
+            },
+            alterarModulo() {
+                this.modulo += '#'
+                console.log(this.$refs.aulaRef.innerText)
+            }
+        }
+    })
+
+    vm.$refs.aulaRef.innerText = 'Alterado diretamente :('
+</script>

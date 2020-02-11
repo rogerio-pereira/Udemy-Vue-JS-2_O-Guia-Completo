@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import Footer from './Footer.vue';
-import Carousel from './Carousel.vue';
-import Toolbar from './Toolbar.vue';
-import Menu from './Menu.vue';
+import Footer from '@/components/template/Footer.vue'; // 		@/ é o caminho global a partir de src
+import Carousel from '../components/widgets/Carousel.vue'; // 	./ ou ../ é o caminho local a partir do arquivo
+import Toolbar from '../components/template/Toolbar.vue';
+import Menu from '../components/template/Menu.vue';
 
 export default {
 	components: {

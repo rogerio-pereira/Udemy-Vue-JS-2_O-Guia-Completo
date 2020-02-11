@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script>
+<script>W
   export default {
     data: function() {
       return {

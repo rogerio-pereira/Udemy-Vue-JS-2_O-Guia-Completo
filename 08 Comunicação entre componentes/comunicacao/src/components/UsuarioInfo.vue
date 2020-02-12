@@ -28,11 +28,12 @@ export default {
         },
         reiniciarNome() {
             const antigo = this.nome
-            this.nome = 'Pedro';
-            this.$emit('nomeMudou', {
+            //this.nome = 'Pedro';
+            /*this.$emit('nomeMudou', {
                 novo: this.nome,
                 antigo
-            })
+            })*/
+            this.$emit('nomeMudou', 'Pedro')
         }
     }
 }

@@ -1,12 +1,10 @@
 <template>
     <div class="citacao">
-        
     </div>
 </template>
 
 <script>
 export default {
-
 }
 </script>
 

@@ -5,12 +5,21 @@
             <button @click="numero++">&gt;</button>
         </span>
         <!--{{ numero }} {{ indice }}-->
-        {{citacoes[indice].texto}}
+        <citacao>
+            <p>
+                {{citacoes[indice].texto}}
+            </p>
+        </citacao>
     </div>
 </template>
 
 <script>
+import citacao from '@/components/Citacao.vue'
+
 export default {
+    components: {
+        citacao
+    },
     data() {
         return {
             numero: 0,

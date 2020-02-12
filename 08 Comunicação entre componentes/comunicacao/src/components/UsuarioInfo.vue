@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import barramento from '@/barramento'
+
 export default {
     props: {
         //nome: String //Validação somente de string
@@ -37,6 +39,11 @@ export default {
             })*/
             this.$emit('nomeMudou', 'Pedro')
         }
+    },
+    created() {
+        barramento.$on('idadeMudou', idade => {
+            this.idade = idade
+        })
     }
 }
 </script>

@@ -15,7 +15,6 @@
             />
             <app-usuario-editar 
                 :idade='idade'
-                @idadeMudou='idade = $event +1'
             />
         </div>
     </div>

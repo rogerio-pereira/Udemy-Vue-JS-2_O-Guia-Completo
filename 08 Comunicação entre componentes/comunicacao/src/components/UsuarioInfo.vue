@@ -13,7 +13,11 @@ export default {
         nome: {
             type: String,
             //required: true,
-            default: 'Anônimo'
+            default: 'Anônimo',
+            /*default: function() {
+                return Array(10).fill(0).join(',');
+            }*/
+        }
     },
     methods: {
         inverterNome() {

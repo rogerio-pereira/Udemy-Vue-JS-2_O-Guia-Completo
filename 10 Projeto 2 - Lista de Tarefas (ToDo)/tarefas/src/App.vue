@@ -4,7 +4,11 @@
 
 		<new-task @taskAdded='addTask'/>
 
-		<task-grid :tasks='tasks' @taskDeleted='deleteTask'/>
+		<task-grid 
+			:tasks='tasks' 
+			@taskDeleted='deleteTask' 
+			@taskStateChange='toggleTaskState'
+		/>
 	</div>
 </template>
 
@@ -36,6 +40,9 @@ export default {
 		},
 		deleteTask(index) {
 			this.tasks.splice(index, 1)
+		},
+		toggleTaskState(index) {
+			this.tasks[index].pending = !this.tasks[index].pending;
 		}
 	}
 }

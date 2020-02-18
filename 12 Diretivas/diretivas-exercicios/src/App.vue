@@ -7,8 +7,13 @@
 		<p v-html="'Usando diretivas <strong>v-text</strong>'"></p> <!--Cuidado com XSS-->
 		<hr>
 
-		<p v-destaque="'red'">Usando diretiva personalizada</p>
+		<p v-destaque:fundo="'red'">Usando diretiva personalizada</p>
 		<p v-destaque="cor">Usando diretiva personalizada</p>
+
+		<!--
+			Estrutura de uma diretiva
+			<p v-teste:argumento.modificador1.modificador2.modificador3="'valor'"></p>
+		-->
 	</div>
 </template>
 

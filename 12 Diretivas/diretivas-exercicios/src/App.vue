@@ -2,8 +2,12 @@
 	<div id="app">
 		<h1>Diretivas</h1>
 		<hr>
+
 		<p v-text="'Usando diretivas <strong>v-text</strong>'"></p>
 		<p v-html="'Usando diretivas <strong>v-text</strong>'"></p> <!--Cuidado com XSS-->
+		<hr>
+
+		<p v-destaque>Usando diretiva personalizada</p>
 	</div>
 </template>
 

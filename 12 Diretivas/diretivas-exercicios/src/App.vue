@@ -7,8 +7,8 @@
 		<p v-html="'Usando diretivas <strong>v-text</strong>'"></p> <!--Cuidado com XSS-->
 		<hr>
 
-		<p v-destaque:fundo="'red'">Usando diretiva personalizada</p>
-		<p v-destaque="cor">Usando diretiva personalizada</p>
+		<p v-destaque:fundo.atrasar="'red'">Usando diretiva personalizada</p>
+		<p v-destaque.atrasar="cor">Usando diretiva personalizada</p>
 
 		<!--
 			Estrutura de uma diretiva
@@ -21,7 +21,7 @@
 export default {
 	data () {
 		return {
-			cor: 'blue'
+			cor: 'green'
 		}
 	}
 }

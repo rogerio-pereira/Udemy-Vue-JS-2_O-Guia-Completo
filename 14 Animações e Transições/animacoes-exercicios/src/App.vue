@@ -33,27 +33,13 @@ export default {
 	font-size: 1.5rem;
 }
 
-.fade-enter {
-	opacity: 0;
-}
-
-.fade-enter-active {
-	transition: opacity 2s;
-}
-
-.fade-enter-to {
-	opacity: 1;
-}
-
-.fade-leave {
-	opacity: 1;
-}
-
-.fade-leave-active {
-	transition: opacity 2s;
-}
-
+.fade-enter,
 .fade-leave-to {
 	opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 2s;
 }
 </style>

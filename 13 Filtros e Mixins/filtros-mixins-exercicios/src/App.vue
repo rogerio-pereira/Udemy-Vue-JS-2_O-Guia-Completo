@@ -3,6 +3,8 @@
 		<h1>Filtros & Mixins</h1>
 		<hr>
 		<p>{{cpf | cpf | inverter}}</p> <!-- | serve para aplicar o filtro, o primeiro parametro é o valor o segundo o nome do filtro -->
+		<input type='text' :value='cpf | cpf | inverter'>
+		<!-- v-model não suporta filtros -->
 	</div>
 </template>
 
@@ -33,6 +35,10 @@ export default {
 	text-align: center;
 	color: #2c3e50;
 	margin-top: 60px;
+	font-size: 2.5rem;
+}
+
+input {
 	font-size: 2.5rem;
 }
 </style>

@@ -2,7 +2,7 @@
 	<div id="app">
 		<h1>Filtros & Mixins</h1>
 		<hr>
-		<p>{{cpf | cpf}}</p> <!-- | serve para aplicar o filtro, o primeiro parametro é o valor o segundo o nome do filtro -->
+		<p>{{cpf | cpf | inverter}}</p> <!-- | serve para aplicar o filtro, o primeiro parametro é o valor o segundo o nome do filtro -->
 	</div>
 </template>
 

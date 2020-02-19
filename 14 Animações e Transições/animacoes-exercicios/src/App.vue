@@ -30,7 +30,6 @@
 		</transition>
 
 		<hr>
-		
 		<b-button @click='exibir2 = !exibir2'>Alternar</b-button>
 		<!--Precisa do : para dizer para o javascript nao usar o css, se nao fizer o bind, o elemente irá ter um atributo css com valor false-->
 		<transition
@@ -49,19 +48,35 @@
 		>
 			<div class="caixa" v-if='exibir2'></div>
 		</transition>
+
+		<hr>
+		<div class='mb-4'>
+			<b-button variant='primary' @click="componenteSelecionado = 'AlertInfo'" class='mr-2'>Info</b-button>
+			<b-button variant='secondary' @click="componenteSelecionado = 'AlertAdvertencia'">Advertencia</b-button>
+		</div>
+		<transition name='fade' mode='out-in'>
+			<component :is='componenteSelecionado'></component>
+		</transition>
 	</div>
 </template>
 
 <script>
+import AlertAdvertencia from './AlertaAdvertencia'
+import AlertInfo from './AlertaInfo'
 
 export default {
+	components: {
+		AlertAdvertencia,
+		AlertInfo
+	},
 	data() {
 		return {
 			msg: 'Uma mensagem de informação para o usuário!',
 			exibir: false,
 			exibir2: true,
 			tipoAnimacao: 'fade',
-			larguraBase: 0
+			larguraBase: 0,
+			componenteSelecionado: 'AlertInfo'
 		}
 	},
 	methods: {

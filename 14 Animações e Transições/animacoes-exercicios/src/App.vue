@@ -31,9 +31,10 @@
 
 		<hr>
 		
-		<b-button @click='exibir2 = !exibir2'>Mostrar 2</b-button>
+		<b-button @click='exibir2 = !exibir2'>Alternar</b-button>
+		<!--Precisa do : para dizer para o javascript nao usar o css, se nao fizer o bind, o elemente irá ter um atributo css com valor false-->
 		<transition
-			:css='false' <!--Precisa do : para dizer para o javascript nao usar o css, se nao fizer o bind, o elemente irá ter um atributo css com valor false-->
+			:css='false'
 
 			@before-enter='beforeEnter'
 			@enter='enter'
@@ -60,15 +61,29 @@ export default {
 			exibir: false,
 			exibir2: true,
 			tipoAnimacao: 'fade',
+			larguraBase: 0
 		}
 	},
 	methods: {
+		animar(el, done, negativo) {
+			let rodada = 1
+			const temporizador = setInterval(() => {
+				const novaLargura = this.larguraBase + (negativo ? -rodada * 10 : rodada * 10)
+				el.style.width = novaLargura+"px"
+				rodada++
+
+				if(rodada > 30) {
+					clearInterval(temporizador)
+					done()
+				}
+			}, 20)
+		},
 		beforeEnter(el) {
-			console.log('beforeEnter')
+			this.larguraBase = 0
+			el.style.width = this.larguraBase+"px"
 		},
 		enter(el, done) { //função que é chamada quando a animação termina
-			console.log('enter')
-			done(); //Chamada de função para ir para o proximo estagio (afterEnter)
+			this.animar(el, done, false)
 		},
 		afterEnter(el) {
 			console.log('afterEnter')
@@ -77,11 +92,11 @@ export default {
 			console.log('enterCancelled')
 		},
 		beforeLeave(el) {
-			console.log('beforeLeave')
+			this.larguraBase = 300
+			el.style.width = this.larguraBase+"px"
 		},
 		leave(el, done) {
-			console.log('leave')
-			done()
+			this.animar(el, done, true)
 		},
 		afterLeave(el) {
 			console.log('afterLeave')

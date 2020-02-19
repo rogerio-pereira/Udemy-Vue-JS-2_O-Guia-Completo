@@ -2,6 +2,8 @@
 	<div id="app">
 		<h1>Filtros & Mixins</h1>
 		<hr>
+		
+		<p>{{usuarioLogado}}</p>
 		<p>{{cpf | cpf | inverter}}</p> <!-- | serve para aplicar o filtro, o primeiro parametro é o valor o segundo o nome do filtro -->
 		<input type='text' :value='cpf | cpf | inverter'>
 		<!-- v-model não suporta filtros -->
@@ -22,12 +24,18 @@
 </template>
 
 <script>
+import frutasMixin from './frutasMixin'
+import usuarioMixin from './usuarioMixin'
 import Frutas from '@/Frutas'
 
 export default {
 	components: {
 		Frutas
 	},
+	mixins: [
+		frutasMixin,
+		usuarioMixin
+	],
 	filters: {
 		cpf(valor) {
 			const arr = valor.split('');
@@ -40,14 +48,7 @@ export default {
 	data() {
 		return {
 			cpf: '12345678925',
-			fruta: '',
-			frutas: ['banana', 'maça', 'laranja']
-		}
-	},
-	methods: {
-		add() {
-			this.frutas.push(this.fruta)
-			this.fruta = ''
+            frutas: ['abacate']
 		}
 	}
 }

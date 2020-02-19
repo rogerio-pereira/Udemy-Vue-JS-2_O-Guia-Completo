@@ -8,7 +8,7 @@
 			<b-alert variant='info' show v-if='exibir'>{{msg}}</b-alert>
 		</transition>
 
-		<transition name='slide' type='animation'>
+		<transition name='slide' type='animation' appear>
 			<b-alert variant='info' show v-show='exibir'>{{msg}}</b-alert>
 		</transition>
 	</div>
@@ -20,7 +20,7 @@ export default {
 	data() {
 		return {
 			msg: 'Uma mensagem de informação para o usuário!',
-			exibir: false
+			exibir: true
 		}
 	}
 }

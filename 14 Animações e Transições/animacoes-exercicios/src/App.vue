@@ -19,7 +19,6 @@
 			<b-alert variant='info' show v-show='exibir'>{{msg}}</b-alert>
 		</transition> -->
 
-
 		<hr>
 		<b-select v-model='tipoAnimacao' class='mb-4'>
 			<option value='fade'>Fade</option>
@@ -28,6 +27,24 @@
 		<transition :name='tipoAnimacao' mode='out-in'>
 			<b-alert variant='info' show v-if='exibir' key='info'>{{msg}}</b-alert>
 			<b-alert variant='warning' show v-else key='warn'>{{msg}}</b-alert>
+		</transition>
+
+		<hr>
+		
+		<b-button @click='exibir2 = !exibir2'>Mostrar 2</b-button>
+		<transition
+			@before-enter='beforeEnter'
+			@enter='enter'
+			@after-enter='afterEnter'
+			@enter-cancelled='enterCancelled'
+
+
+			@before-leave='beforeLeave'
+			@leave='leave'
+			@after-leave='afterLeave'
+			@leave-cancelled='leaveCancelled'
+		>
+			<div class="caixa" v-if='exibir2'></div>
 		</transition>
 	</div>
 </template>
@@ -39,8 +56,37 @@ export default {
 		return {
 			msg: 'Uma mensagem de informação para o usuário!',
 			exibir: false,
+			exibir2: true,
 			tipoAnimacao: 'fade',
 		}
+	},
+	methods: {
+		beforeEnter(el) {
+			console.log('beforeEnter')
+		},
+		enter(el, done) { //função que é chamada quando a animação termina
+			console.log('enter')
+			done(); //Chamada de função para ir para o proximo estagio (afterEnter)
+		},
+		afterEnter(el) {
+			console.log('afterEnter')
+		},
+		enterCancelled(el) {
+			console.log('enterCancelled')
+		},
+		beforeLeave(el) {
+			console.log('beforeLeave')
+		},
+		leave(el, done) {
+			console.log('leave')
+			done()
+		},
+		afterLeave(el) {
+			console.log('afterLeave')
+		},
+		leaveCancelled(el) {
+			console.log('leaveCancelled')
+		},
 	}
 }
 </script>
@@ -54,6 +100,13 @@ export default {
 	color: #2c3e50;
 	margin-top: 60px;
 	font-size: 1.5rem;
+}
+
+.caixa {
+	height: 100px;
+	width: 300px;
+	margin: 30px auto;
+	background-color: lightgreen;
 }
 
 .fade-enter,

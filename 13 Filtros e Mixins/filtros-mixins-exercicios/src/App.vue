@@ -5,11 +5,29 @@
 		<p>{{cpf | cpf | inverter}}</p> <!-- | serve para aplicar o filtro, o primeiro parametro é o valor o segundo o nome do filtro -->
 		<input type='text' :value='cpf | cpf | inverter'>
 		<!-- v-model não suporta filtros -->
+
+		<hr>
+		<frutas />
+
+		<hr>
+
+		<div>
+			<ul>
+				<li v-for="fruta in frutas" :key="fruta">{{fruta}}</li>
+			</ul>
+
+			<input v-model='fruta' @keydown.enter="add">
+		</div>
 	</div>
 </template>
 
 <script>
+import Frutas from '@/Frutas'
+
 export default {
+	components: {
+		Frutas
+	},
 	filters: {
 		cpf(valor) {
 			const arr = valor.split('');
@@ -21,7 +39,15 @@ export default {
 	},
 	data() {
 		return {
-			cpf: '12345678925'
+			cpf: '12345678925',
+			fruta: '',
+			frutas: ['banana', 'maça', 'laranja']
+		}
+	},
+	methods: {
+		add() {
+			this.frutas.push(this.fruta)
+			this.fruta = ''
 		}
 	}
 }

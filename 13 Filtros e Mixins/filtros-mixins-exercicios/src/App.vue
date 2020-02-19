@@ -50,7 +50,10 @@ export default {
 			cpf: '12345678925',
             frutas: ['abacate']
 		}
-	}
+	},
+    created() {
+        console.log('created - app')
+    }
 }
 </script>
 

@@ -33,6 +33,8 @@
 		
 		<b-button @click='exibir2 = !exibir2'>Mostrar 2</b-button>
 		<transition
+			:css='false' <!--Precisa do : para dizer para o javascript nao usar o css, se nao fizer o bind, o elemente irá ter um atributo css com valor false-->
+
 			@before-enter='beforeEnter'
 			@enter='enter'
 			@after-enter='afterEnter'

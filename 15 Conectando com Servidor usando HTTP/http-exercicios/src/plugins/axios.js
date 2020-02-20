@@ -12,5 +12,13 @@ Vue.use({
         Vue.prototype.$http = axios.create({
             baseURL: 'https://curso-vue-8e9a2.firebaseio.com/'
         })
+
+        Vue.prototype.$http.interceptors.request.use(config => {
+            console.log(config.method)
+            // if(config.method == 'post') {
+            //     config.method = 'put'
+            // }
+            return config
+        });
     }
 })

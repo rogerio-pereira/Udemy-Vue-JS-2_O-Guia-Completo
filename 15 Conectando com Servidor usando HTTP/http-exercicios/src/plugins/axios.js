@@ -19,6 +19,19 @@ Vue.use({
             //     config.method = 'put'
             // }
             return config
-        });
+        }, error => Promise.reject(error));
+
+        Vue.prototype.$http.interceptors.response.use(response => {
+            // const array = []
+            // for(let chave in response.data) {
+            //     array.push({
+            //         id: chave,
+            //         ...response.data[chave] // ... pega todos os elementos internos do array
+            //     })
+            // }
+
+            // response.data = array
+            return response
+        }, error => Promise.reject(error));
     }
 })

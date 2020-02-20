@@ -35,6 +35,7 @@
 			<b-list-group-item v-for='(usuario, id) in usuarios' :key='id'>
 				<strong>Nome: {{usuario.nome}}</strong><br/>
 				<strong>Email: {{usuario.email}}</strong><br/>
+				<!-- <strong>ID: {{usuario.id}}</strong><br/> --> <!--Usando o interceptor de response-->
 				<strong>ID: {{id}}</strong><br/>
 			</b-list-group-item>
 		</b-list-group>
@@ -65,6 +66,7 @@ export default {
 			this.$http.get('usuarios.json')
 				.then(res => {
 					this.usuarios = res.data
+					console.log(this.usuarios)
 				})
 
 			//Acessando axios localmente, nesse caso vc precisa da URL completa, pq nao esta sendo usado o baseURL

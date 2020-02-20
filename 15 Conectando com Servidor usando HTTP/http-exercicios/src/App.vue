@@ -76,6 +76,10 @@ export default {
 			// 	.then(res => {
 			// 		this.usuarios = res.data
 			// 	})
+
+			//Passando header para a requisição, nesse caso só vai funcionar a partir da segunda, porque estamos 
+			//definindo o header depois da requisição
+			this.$http.defaults.headers.common['Authorization'] = 'abc123_localmente'
 		}
 	}
 	// created() {

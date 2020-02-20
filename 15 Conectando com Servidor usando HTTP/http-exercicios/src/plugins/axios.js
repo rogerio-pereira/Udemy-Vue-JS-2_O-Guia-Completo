@@ -2,6 +2,8 @@ import Vue from 'vue'
 import axios from 'axios'
 
 // axios.defaults.baseURL = 'https://curso-vue-8e9a2.firebaseio.com/'
+// axios.defaults.headers.common['Authorization'] = 'abc123'
+// axios.defaults.headers.get['Accepts'] = 'application/json'
 
 Vue.use({
     install(Vue) {
@@ -10,7 +12,13 @@ Vue.use({
         //Criação de uma instancia do axios, para criar mais de uma basta duplicar essas linhas, mudar o nome da variavel $http,
         //para por exemplo $api, e mudar a baseURL
         Vue.prototype.$http = axios.create({
-            baseURL: 'https://curso-vue-8e9a2.firebaseio.com/'
+            baseURL: 'https://curso-vue-8e9a2.firebaseio.com/',
+            headers: {
+                //'Authorization': 'abc123',
+                get: {
+                    'Accepts': 'application/json'
+                }
+            }
         })
 
         Vue.prototype.$http.interceptors.request.use(config => {

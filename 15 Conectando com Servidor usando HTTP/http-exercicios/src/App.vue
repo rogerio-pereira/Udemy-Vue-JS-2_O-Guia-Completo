@@ -42,6 +42,7 @@
 </template>
 
 <script>
+//import axios from 'axios'
 export default {
 	data() {
 		return {
@@ -65,6 +66,14 @@ export default {
 				.then(res => {
 					this.usuarios = res.data
 				})
+
+			//Acessando axios localmente, nesse caso vc precisa da URL completa, pq nao esta sendo usado o baseURL
+			//para requisições do tipo get vc pode remover o .get
+			//axios.get()('usuarios.json')
+			// axios('https://curso-vue-8e9a2.firebaseio.com/usuarios.json')
+			// 	.then(res => {
+			// 		this.usuarios = res.data
+			// 	})
 		}
 	}
 	// created() {

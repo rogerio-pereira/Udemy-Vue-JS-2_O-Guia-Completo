@@ -37,6 +37,8 @@
 				<strong>Email: {{usuario.email}}</strong><br/>
 				<!-- <strong>ID: {{usuario.id}}</strong><br/> --> <!--Usando o interceptor de response-->
 				<strong>ID: {{id}}</strong><br/>
+				<b-button variant='warning' size='lg' @click='carregar(id)'>Carregar</b-button>
+				<b-button variant='danger' size='lg' @click='excluir(id)' class='ml-2'>Excluir</b-button>
 			</b-list-group-item>
 		</b-list-group>
 	</div>
@@ -48,6 +50,7 @@ export default {
 	data() {
 		return {
 			usuarios: [],
+			id: null,
 			usuario: {
 				nome: '',
 				email: ''
@@ -55,12 +58,25 @@ export default {
 		}
 	},
 	methods: {
+		limpar() {
+			this.usuario.nome = ''
+			this.usuario.email = ''
+			this.id = null
+		},
+		carregar(id) {
+			this.id = id
+			this.usuario = {...this.usuarios[id]}
+		},
+		excluir(id) {
+			this.$http.delete('/usuarios/'+id+'.json')
+				.then(() => this.limpar())
+		},
 		salvar() {
-			this.$http.post('usuarios.json', this.usuario)
-				.then(res => {
-					this.usuario.nome = ''
-					this.usuario.email = ''
-				})
+			const method = this.id ? 'patch' : 'post'
+			const finalUrl = this.id ? '/'+this.id+'.json' : '.json' //Se tiver id final da url é "/{id}.json", se nao o final é ".json"
+
+			this.$http[method]('/usuarios'+finalUrl, this.usuario)
+				.then(() => this.limpar())
 		},
 		obterUsuarios() {
 			this.$http.get('usuarios.json')

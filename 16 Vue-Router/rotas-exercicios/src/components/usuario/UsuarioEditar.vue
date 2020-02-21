@@ -3,6 +3,7 @@
         <h3>Usuário Editar</h3>
 
         <p><strong>Codigo:</strong> {{id}}</p>
+        <p><strong>Codigo:</strong> {{$route.params.id}}</p>
     </div>
 </template>
 

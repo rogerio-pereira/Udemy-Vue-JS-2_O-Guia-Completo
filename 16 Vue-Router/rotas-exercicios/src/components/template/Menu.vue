@@ -1,7 +1,15 @@
 <template>
     <nav class='menu'>
-        <router-link to='/'>Inicio</router-link>
-        <router-link to='/usuario'>Usuario</router-link>
+        <ul>
+            <!-- Exact diz que a rota deve ser exatamente igual a rota especificada -->
+            <router-link to='/' tag='li' active-class='active' exact>
+                <a>Inicio</a>
+            </router-link>
+            <!-- Não usamos o exact aqui pq uma rota /usuario/1/editar ficará ativo do mesmo modo -->
+            <router-link to='/usuario' tag='li' active-class='active'>
+                <a>Usuario</a>
+            </router-link>
+        </ul>
     </nav>
 </template>
 

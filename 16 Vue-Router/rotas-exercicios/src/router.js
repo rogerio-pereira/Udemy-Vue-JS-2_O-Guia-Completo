@@ -13,7 +13,8 @@ export default new Router({
     routes: [
         {
             path: '/',
-            component: Inicio
+            component: Inicio,
+            name: 'inicio'
         },
         {
             path: '/usuario',
@@ -23,7 +24,7 @@ export default new Router({
                 //IMPORTANTE: Não colocar / antes das rotas pq se nao o Vue vai entender que é a rota raiz
                 {path: '', component: UsuarioLista}, 
                 {path: ':id', component: UsuarioDetalhe, props: true},
-                {path: ':id/editar', component: UsuarioEditar, props: true},
+                {path: ':id/editar', component: UsuarioEditar, props: true, name: 'editarUsuario'},
             ]
         },
     ]

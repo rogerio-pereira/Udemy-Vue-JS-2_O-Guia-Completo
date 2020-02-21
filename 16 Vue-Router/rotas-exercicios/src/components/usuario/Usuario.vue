@@ -1,6 +1,9 @@
 <template>
     <div class="usuario">
         <h2>Usuarios</h2>
+
+        <hr>
+        <button sucesso @click='irParaInicio'>Voltar</button>
     </div>
 </template>
 
@@ -9,6 +12,12 @@
         data() {
             return {
 
+            }
+        },
+        methods: {
+            irParaInicio() {
+                // this.$router.push('/')
+                this.$router.push({ path: '/' })
             }
         }
     }

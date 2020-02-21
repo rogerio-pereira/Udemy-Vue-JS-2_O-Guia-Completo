@@ -4,6 +4,10 @@
 
         <p><strong>Codigo:</strong> {{id}}</p>
         <p><strong>Codigo:</strong> {{$route.params.id}}</p>
+
+        <p><strong>Completo:</strong> {{$route.query.completo ? 'Sim' : 'Não'}}</p>
+        <p><strong>Lingua:</strong> {{$route.query.lingua}}</p>
+        <p><strong>Nome:</strong> {{$route.query.nome}}</p>
     </div>
 </template>
 

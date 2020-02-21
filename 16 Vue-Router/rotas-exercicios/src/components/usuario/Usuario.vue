@@ -3,6 +3,7 @@
         <h2>Usuarios</h2>
 
         <hr>
+        <p><strong>Codigo:</strong> {{id}}</p>
         <button sucesso @click='irParaInicio'>Voltar</button>
     </div>
 </template>
@@ -11,7 +12,7 @@
     export default {
         data() {
             return {
-
+                id: this.$route.params.id
             }
         },
         methods: {

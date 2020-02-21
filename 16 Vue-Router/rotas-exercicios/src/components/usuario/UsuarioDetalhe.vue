@@ -2,7 +2,6 @@
     <div class="usuario-detalhe">
         <h3>Usuario Detalhe</h3>
 
-        <hr>
         <p><strong>Codigo:</strong> {{id}}</p>
     </div>
 </template>

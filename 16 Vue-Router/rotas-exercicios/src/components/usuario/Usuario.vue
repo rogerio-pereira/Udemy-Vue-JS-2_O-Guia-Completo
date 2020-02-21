@@ -3,8 +3,8 @@
         <h2>Usuarios</h2>
 
         <hr>
-        <button sucesso @click='irParaInicio'>Voltar</button>
         <router-view /> 
+        <button sucesso @click='irParaInicio'>Voltar</button>
     </div>
 </template>
 

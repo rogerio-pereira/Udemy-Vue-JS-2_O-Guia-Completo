@@ -6,7 +6,7 @@
                 <a>Inicio</a>
             </router-link>
             <!-- Não usamos o exact aqui pq uma rota /usuario/1/editar ficará ativo do mesmo modo -->
-            <router-link to='/usuario' tag='li' active-class='active'>
+            <router-link to='/usuario/10' tag='li' active-class='active'>
                 <a>Usuario</a>
             </router-link>
         </ul>

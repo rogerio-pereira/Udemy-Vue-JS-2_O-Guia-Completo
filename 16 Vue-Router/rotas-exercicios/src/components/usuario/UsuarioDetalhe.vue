@@ -9,7 +9,8 @@
             :to="{
                 name: 'editarUsuario', 
                 params: {id}, 
-                query: {completo: true, lingua: 'pt-br', nome: 'Rogerio'}
+                query: {completo: true, lingua: 'pt-br', nome: 'Rogerio'},
+                hash: '#rodape'
             }" 
             primario
         >

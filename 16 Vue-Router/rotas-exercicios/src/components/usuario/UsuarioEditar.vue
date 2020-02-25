@@ -10,7 +10,7 @@
         <p><strong>Nome:</strong> {{$route.query.nome}}</p>
 
         <hr>
-        <button primario>Confirmar</button>
+        <button primario @click='confirmou = true'>Confirmar</button>
 
         <div id='rodape'>
             <h3>Curso Vue</h3>
@@ -25,7 +25,17 @@
         ],
         data() {
             return {
-
+                confirmou: false
+            }
+        },
+        beforeRouteLeave (to, from, next) {
+            if(this.confirmou)
+                next()
+            else {
+                if(confirm('Tem Certeza?'))
+                    next()
+                else
+                    next(false)
             }
         }
     }

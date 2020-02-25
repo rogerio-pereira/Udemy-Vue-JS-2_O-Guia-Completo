@@ -9,15 +9,20 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
-    computed: {
-        total() {
-            return this.$store.getters.valorTotal
-        },
-        produtos() {
-            return this.$store.state.produtos
-        }
-    },
+    // computed: {
+    //     total() {
+    //         return this.$store.getters.valorTotal
+    //     }
+    // },
+
+    //Mapeia o metodo velorTotal, nesse caso a propriedade computada vai chamar valorTotal
+    // computed: mapGetters(['valorTotal'])
+
+    //Mapeia o método valorTotal para uma propriedade computada chamada total
+    computed: mapGetters({ total: 'valorTotal'})
 }
 </script>
 

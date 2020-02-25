@@ -11,7 +11,7 @@ import UsuarioEditar from './components/usuario/UsuarioEditar'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
     mode: 'history',
     scrollBehavior(to, from, savedPosition) {
         if(savedPosition)
@@ -43,7 +43,15 @@ export default new Router({
             children: [
                 //IMPORTANTE: Não colocar / antes das rotas pq se nao o Vue vai entender que é a rota raiz
                 {path: '', component: UsuarioLista}, 
-                {path: ':id', component: UsuarioDetalhe, props: true},
+                {
+                    path: ':id', 
+                    component: UsuarioDetalhe, 
+                    props: true, 
+                    beforeEnter: (to, from, next) => {
+                        console.log('Antes da rota -> Usuario detalhe')
+                        next()
+                    }
+                },
                 {path: ':id/editar', component: UsuarioEditar, props: true, name: 'editarUsuario'},
             ]
         },
@@ -57,3 +65,20 @@ export default new Router({
         }
     ]
 })
+
+router.beforeEach((to, from, next) => {
+    console.log('antes das rotas -> global');
+    //Precisa do next para avançar para a proxima rota
+    next()
+
+    // Verifica se a rota é usuario, se não for redireciona para usuario, senao continua a mesma rota
+    // if(to.path !== '/usuario')
+    //     next('/usuario')
+    // else
+    //     next()
+
+    // Aborta a navegação para a proxima rota
+    //next(false)
+})
+
+export default router

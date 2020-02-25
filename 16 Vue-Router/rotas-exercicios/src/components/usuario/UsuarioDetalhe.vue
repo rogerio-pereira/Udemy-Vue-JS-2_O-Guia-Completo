@@ -24,6 +24,19 @@
         props: [
             'id'
         ],
+        beforeRouteEnter (to, from, next) {
+            //console.log(this.id) //Vai gerar um erro pq nesse momento o componente ainda nao foi instanciado
+            // Forma correta de acessar as propriedades do componente, usando uma função callback
+            // next(vm => {
+            //     console.log(vm.id)
+            // })
+            
+            // const autenticado = true
+            // autenticado ? next() : next(false)
+
+            console.log('dentro do componete usuario detalhe')
+            next()
+        }
         // data() {
         //     return {
         //         id: this.$route.params.id

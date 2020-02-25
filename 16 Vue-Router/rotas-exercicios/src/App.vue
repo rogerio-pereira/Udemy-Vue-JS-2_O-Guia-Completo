@@ -5,7 +5,13 @@
 		<!-- <Menu /> -->
 		<router-view name='menu' />
 
-		<router-view />
+		<transition 
+			enter-active-class="animated rubberBand"
+			leave-active-class="animated rollOut"
+			mode='out-in'
+		>
+			<router-view />
+		</transition>
 
 		<router-view name='menuInferior' />
 	</div>

@@ -4,12 +4,19 @@ import Inicio from './components/Inicio'
 import Menu from './components/template/Menu'
 import MenuAlt from './components/template/MenuAlt'
 
-import Usuario from './components/usuario/Usuario'
-import UsuarioLista from './components/usuario/UsuarioLista'
-import UsuarioDetalhe from './components/usuario/UsuarioDetalhe'
-import UsuarioEditar from './components/usuario/UsuarioEditar'
+// import Usuario from './components/usuario/Usuario'
+// import UsuarioLista from './components/usuario/UsuarioLista'
+// import UsuarioDetalhe from './components/usuario/UsuarioDetalhe'
+// import UsuarioEditar from './components/usuario/UsuarioEditar'
 
 Vue.use(Router)
+
+//Lazy loading de componentes
+//webpackChunckName empacata os arquivos em um unico js, para evitar carregar multiplos arquivos simultaneos
+const Usuario = () => import(/* webpackChunckName: "usuario" */ './components/usuario/Usuario')
+const UsuarioLista = () => import(/* webpackChunckName: "usuario" */ './components/usuario/UsuarioLista')
+const UsuarioDetalhe = () => import('./components/usuario/UsuarioDetalhe')
+const UsuarioEditar = () => import('./components/usuario/UsuarioEditar')
 
 const router = new Router({
     mode: 'history',

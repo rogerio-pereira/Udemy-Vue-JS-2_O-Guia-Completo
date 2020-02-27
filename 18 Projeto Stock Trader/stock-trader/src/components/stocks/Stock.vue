@@ -3,16 +3,22 @@
         <v-card class="green darken-3 white--text">
             <v-card-title class="headline">
                 <strong>
-                    Nome
-                    <small>Preço: Preço</small>
+                    {{stock.name}}
+                    <small>Preço: {{stock.price}}</small>
                 </strong>
             </v-card-title>
         </v-card>
 
         <v-card>
             <v-container fill-height>
-                <v-text-field label='Quantidade' type='number' />
-                <v-button class="green darken-3 white--text">Comprar</v-button>
+                <v-text-field label='Quantidade' type='number' v-model.number="quantity" min='0'/>
+                <v-btn 
+                    class="green darken-3 white--text" 
+                    :disabled='quantity < 1 || !Number.isInteger(quantity)' 
+                    @click='buyStock'
+                >
+                    Comprar
+                </v-btn>
             </v-container>
         </v-card>
     </v-flex>
@@ -20,9 +26,24 @@
 
 <script>
     export default {
+        props: [
+            'stock'
+        ],
         data() {
             return {
+                quantity: 0
+            }
+        },
+        methods: {
+            buyStock() {
+                const order = {
+                    stockId: this.stock.id,
+                    stockPrice: this.stock.price,
+                    quantity: this.quantity
+                }
 
+                console.log(order)
+                this.quantity = 0
             }
         }
     }

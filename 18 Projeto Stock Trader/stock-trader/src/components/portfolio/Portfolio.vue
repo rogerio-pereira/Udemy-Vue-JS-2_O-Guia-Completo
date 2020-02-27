@@ -1,13 +1,21 @@
 <template>
-    <h1>Portfolio</h1>
+    <v-layout row wrap>
+        <stock v-for='stock in stocks' :key='stock.id' :stock='stock'/>
+    </v-layout>
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
+    import {mapGetters} from 'vuex'
+    import Stock from './Stock'
 
-            }
+    export default {
+        components: {
+            Stock
+        },
+        computed: {
+            ...mapGetters({
+                stocks: 'stockPortfolio'
+            })
         }
     }
 </script>

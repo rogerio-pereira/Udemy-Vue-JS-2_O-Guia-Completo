@@ -31,11 +31,11 @@ export default {
     },
     methods: {
         // ...mapMutations(['adicionarProduto']),
-        //  ...mapActions(['adicionarProduto']),
+        ...mapActions('carrinho', ['adicionarProduto']),
         //O mapActions da linha de cima faz a mesma coisa que isso
-        adicionarProduto(produto) {
-            this.$store.dispatch('adicionarProduto', produto)
-        },
+        // adicionarProduto(produto) {
+        //     this.$store.dispatch('adicionarProduto', produto)
+        // },
         adicionar() {
             const produto = {
                 id: this.sequencia,
@@ -51,9 +51,9 @@ export default {
             // this.$store.commit('adicionarProduto', produto)
 
             //Usando a store com mapMutations
-            // this.adicionarProduto(produto)
+            this.adicionarProduto(produto)
 
-            this.$store.dispatch('adicionarProduto', produto)
+            //this.$store.dispatch('adicionarProduto', produto)
 
             console.log(this.$store.getters.getNome)
             console.log(this.$store.getters.getNomeCompleto)

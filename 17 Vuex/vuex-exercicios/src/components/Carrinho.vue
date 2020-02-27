@@ -36,7 +36,7 @@ export default {
         // },
 
         //Usando mapGetters
-        ...mapGetters({ total: 'valorTotal'}),
+        ...mapGetters('carrinho', { total: 'valorTotal'}), //Primeiro parametro é o namespace do modulo
 
         produtos() {
             return this.$store.state.carrinho.produtos

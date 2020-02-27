@@ -1,4 +1,5 @@
 export default {
+    namespaced: true,
     state: {
         produtos: [
             // { id: 1, nome: 'Produto 1', quantidade: 7, preco: 14.55 },
@@ -25,6 +26,16 @@ export default {
             setTimeout(() => {
                 commit('adicionarProduto', payload)
             }, 1000)
-        }
+        },
+        //Desse modo definindo root como true, essa action fica fora do namespace, então onde você importa o mapAction
+        //você deve retirar o namespace
+        // adicionarProduto: {
+        //     root: true,
+        //     handler({ commit }, payload) {
+        //         setTimeout(() => {
+        //             commit('adicionarProduto', payload)
+        //         }, 1000)
+        //     }
+        // }
     }
 }

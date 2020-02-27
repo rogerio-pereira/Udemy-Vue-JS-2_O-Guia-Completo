@@ -22,7 +22,7 @@ export default {
     // computed: mapGetters(['valorTotal'])
 
     //Mapeia o método valorTotal para uma propriedade computada chamada total
-    computed: mapGetters({ total: 'valorTotal'})
+    computed: mapGetters('carrinho', { total: 'valorTotal'})
 }
 </script>
 

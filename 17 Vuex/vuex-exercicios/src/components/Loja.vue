@@ -25,7 +25,11 @@ export default {
     },
     methods: {
         // ...mapMutations(['adicionarProduto']),
-         ...mapActions(['adicionarProduto']),
+        //  ...mapActions(['adicionarProduto']),
+        //O mapActions da linha de cima faz a mesma coisa que isso
+        adicionarProduto(produto) {
+            this.$store.dispatch('adicionarProduto', produto)
+        },
         adicionar() {
             const produto = {
                 id: this.sequencia,

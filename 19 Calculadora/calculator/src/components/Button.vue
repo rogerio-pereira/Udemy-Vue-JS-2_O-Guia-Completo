@@ -22,15 +22,17 @@
     :root {
         --bg-button: #f0f0f0;
         --border-button: solid 1px #888;
-
     }
 
     .button {
         font-size: 1.4em;
-        background-color: var(--bg-button);
+        /* background-color: var(--bg-button); */
+        background-color: #f0f0f0;
         border: none;
-        border-right: var(--border-button);
-        border-bottom: var(--border-button);
+        /* border-right: var(--border-button);
+        border-bottom: var(--border-button); */
+        border-right: solid 1px #888;;
+        border-bottom: solid 1px #888;;
         outline: none;
     }
 

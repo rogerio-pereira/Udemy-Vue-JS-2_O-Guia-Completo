@@ -2,23 +2,23 @@
     <div class="calculator">
         <display value='1000' />
 
-        <Button label='AC' triple />
-        <Button label='/' operation />
-        <Button label='7' />
-        <Button label='8' />
-        <Button label='9' />
-        <Button label='*' operation />
-        <Button label='4' />
-        <Button label='5' />
-        <Button label='6' />
-        <Button label='-' operation />
-        <Button label='1' />
-        <Button label='2' />
-        <Button label='3' />
-        <Button label='+' operation />
-        <Button label='0' double />
-        <Button label='.' />
-        <Button label='=' operation />
+        <Button label='AC' triple @onClick="clearMemory"/>
+        <Button label='/' operation @onClick='setOperation'/>
+        <Button label='7' @onClick='addDigito'/>
+        <Button label='8' @onClick='addDigito'/>
+        <Button label='9' @onClick='addDigito'/>
+        <Button label='*' operation @onClick='setOperation'/>
+        <Button label='4' @onClick='addDigito'/>
+        <Button label='5' @onClick='addDigito'/>
+        <Button label='6' @onClick='addDigito'/>
+        <Button label='-' operation @onClick='setOperation'/>
+        <Button label='1' @onClick='addDigito'/>
+        <Button label='2' @onClick='addDigito'/>
+        <Button label='3' @onClick='addDigito'/>
+        <Button label='+' operation @onClick='setOperation'/>
+        <Button label='0' double @onClick='addDigito'/>
+        <Button label='.' @onClick='addDigito'/>
+        <Button label='=' operation @onClick='setOperation'/>
     </div>
 </template>
 
@@ -31,9 +31,15 @@
             Display,
             Button
         },
-        data() {
-            return {
-
+        methods: {
+            clearMemory () {
+                
+            },
+            setOperation(operation) {
+                
+            },
+            addDigito(n) {
+                
             }
         }
     }
